@@ -1,7 +1,9 @@
 package com.siteweb.demo.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -9,7 +11,11 @@ import lombok.*;
 @EqualsAndHashCode
 @Builder
 public class Empresa {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String descricao;
     private String cnpj;
     private String endereco;

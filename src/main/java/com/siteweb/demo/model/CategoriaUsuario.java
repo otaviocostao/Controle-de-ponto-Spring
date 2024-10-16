@@ -1,7 +1,9 @@
 package com.siteweb.demo.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -9,6 +11,10 @@ import lombok.*;
 @EqualsAndHashCode
 @Builder
 public class CategoriaUsuario {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String descricao;
 }

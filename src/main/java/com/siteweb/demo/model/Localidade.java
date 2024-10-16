@@ -1,7 +1,9 @@
 package com.siteweb.demo.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -9,5 +11,11 @@ import lombok.*;
 @EqualsAndHashCode
 @Builder
 public class Localidade {
-    private long codigo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private NivelAcesso nivelAcesso;
+    private String descricao;
 }
